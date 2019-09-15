@@ -1,0 +1,9 @@
+## Interface: 11302
+## X-Min-Interface: 11302
+
+## Title: SellCrap
+## Notes: Sell your greys with a single click!
+## Author: Pexus aka Dinero
+## Version: 1.0
+
+main.lua
