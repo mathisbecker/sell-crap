@@ -1,22 +1,24 @@
 SELLCRAP = {}
 
-function SELLCRAP:formatSellValue(copperValue)
-    goldCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_01:12:12:0:0:64:64:4:60:4:60|t"
-    silverCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_03:12:12:0:0:64:64:4:60:4:60|t"
-    copperCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_05:12:12:0:0:64:64:4:60:4:60|t"
+function SELLCRAP:printSellValue(copperValue)
+    if (copperValue > 0) then
+        goldCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_01:12:12:0:0:64:64:4:60:4:60|t"
+        silverCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_03:12:12:0:0:64:64:4:60:4:60|t"
+        copperCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_05:12:12:0:0:64:64:4:60:4:60|t"
 
-    local goldValue = math.floor(copperValue/10000);
-    local silverValue = math.floor(copperValue/100-(goldValue*10000));
-    local copperValue = math.floor(copperValue-(goldValue*10000)-(silverValue*100));
+        local goldValue = math.floor(copperValue/10000);
+        local silverValue = math.floor(copperValue/100-(goldValue*10000));
+        local copperValue = math.floor(copperValue-(goldValue*10000)-(silverValue*100));
 
-    local goldString = ""
-    if (goldValue > 0) then goldString = goldValue..goldCoinIcon end
-    local silverString = ""
-    if (silverValue > 0) then silverString = silverValue..silverCoinIcon end
-    local copperString = "" 
-    if (copperValue > 0) then copperString = copperValue..copperCoinIcon end
+        local goldString = ""
+        if (goldValue > 0) then goldString = goldValue..goldCoinIcon end
+        local silverString = ""
+        if (silverValue > 0) then silverString = silverValue..silverCoinIcon end
+        local copperString = "" 
+        if (copperValue > 0) then copperString = copperValue..copperCoinIcon end
 
-    return "Selling crap for a total of "..goldString..silverString..copperString
+        print("Selling crap for a total of "..goldString..silverString..copperString)
+    end
 end
 
 function SELLCRAP:sellCrap()
@@ -35,7 +37,7 @@ function SELLCRAP:sellCrap()
             end
         end
     end
-    print(SELLCRAP:formatSellValue(totalGreysValue))
+    SELLCRAP:printSellValue(totalGreysValue)
 end
 
 
