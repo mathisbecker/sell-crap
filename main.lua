@@ -1,5 +1,3 @@
-SELLCRAP = {}
-
 function SELLCRAP:printSellValue(copperValue)
     if (copperValue > 0) then
         goldCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_01:12:12:0:0:64:64:4:60:4:60|t"
@@ -70,3 +68,14 @@ sellCrapButton:SetPushedTexture(pushedTexture)
 sellCrapButton:SetScript("OnClick", function()
     SELLCRAP:sellCrap()
 end)
+
+local eventFrame = CreateFrame("Frame");
+eventFrame:RegisterEvent("MERCHANT_SHOW")
+eventFrame:SetScript("OnEvent", 
+    function()
+        if (AUTOSELLCHECKBOXSTATE) then
+            print("auto")
+            SELLCRAP:sellCrap()
+        end
+    end
+)

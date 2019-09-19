@@ -6,4 +6,7 @@
 ## Author: Pexus aka Dinero
 ## Version: 1.0
 
+## SavedVariablesPerCharacter: AUTOSELLCHECKBOXSTATE
+
+options.lua
 main.lua
