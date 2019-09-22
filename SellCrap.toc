@@ -4,7 +4,7 @@
 ## Title: SellCrap
 ## Notes: Sell your greys with a single click!
 ## Author: Pexus aka Dinero
-## Version: 1.0
+## Version: 1.1
 
 ## SavedVariablesPerCharacter: AUTOSELLCHECKBOXSTATE
 
