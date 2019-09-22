@@ -6,7 +6,6 @@ if (SELLCRAP == nil) then
     frame:SetScript("OnEvent", 
         function(self, event, addonName)
             if (event == "ADDON_LOADED" and addonName == "SellCrap") then
-                print(AUTOSELLCHECKBOXSTATE)
                 if (AUTOSELLCHECKBOXSTATE == nil) then
                     handleSavedVars(false);  
                 else

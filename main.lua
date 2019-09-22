@@ -1,12 +1,12 @@
-function SELLCRAP:printSellValue(copperValue)
-    if (copperValue > 0) then
+function SELLCRAP:printSellValue(rawMoneyValue)
+    if (rawMoneyValue > 0) then
         goldCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_01:12:12:0:0:64:64:4:60:4:60|t"
         silverCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_03:12:12:0:0:64:64:4:60:4:60|t"
         copperCoinIcon = "|TInterface\\Icons\\INV_Misc_Coin_05:12:12:0:0:64:64:4:60:4:60|t"
 
-        local goldValue = math.floor(copperValue/10000);
-        local silverValue = math.floor(copperValue/100-(goldValue*10000));
-        local copperValue = math.floor(copperValue-(goldValue*10000)-(silverValue*100));
+        local goldValue = math.floor(rawMoneyValue/10000);
+        local silverValue = math.floor((rawMoneyValue-(goldValue*10000))/100);
+        local copperValue = rawMoneyValue-(silverValue*100)-(goldValue*10000);
 
         local goldString = ""
         if (goldValue > 0) then goldString = goldValue..goldCoinIcon end
@@ -74,7 +74,6 @@ eventFrame:RegisterEvent("MERCHANT_SHOW")
 eventFrame:SetScript("OnEvent", 
     function()
         if (AUTOSELLCHECKBOXSTATE) then
-            print("auto")
             SELLCRAP:sellCrap()
         end
     end
