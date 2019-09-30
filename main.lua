@@ -38,6 +38,13 @@ function SELLCRAP:sellCrap()
     SELLCRAP:printSellValue(totalGreysValue)
 end
 
+function SELLCRAP:repair()
+    local repairCost, canRepair = GetRepairAllCost();
+    if (canRepair) then
+        RepairAllItems()
+    end
+end    
+
 
 local sellCrapButton = CreateFrame("Button", nil, MerchantFrame)
 sellCrapButton:SetPoint("TOP", MerchantFrame, "CENTER", 0, 195)
@@ -73,8 +80,11 @@ local eventFrame = CreateFrame("Frame");
 eventFrame:RegisterEvent("MERCHANT_SHOW")
 eventFrame:SetScript("OnEvent", 
     function()
-        if (AUTOSELLCHECKBOXSTATE) then
+        if (SELLCRAPVARS.autoSellCheckboxState) then
             SELLCRAP:sellCrap()
+        end
+        if (SELLCRAPVARS.autoRepairCheckboxState) then
+            SELLCRAP:repair()
         end
     end
 )
