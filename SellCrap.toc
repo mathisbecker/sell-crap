@@ -3,10 +3,10 @@
 
 ## Title: SellCrap
 ## Notes: Sell your greys with a single click!
-## Author: Pexus aka Dinero
-## Version: 1.1
+## Author: Fitzsimmons6
+## Version: 1.2
 
-## SavedVariablesPerCharacter: AUTOSELLCHECKBOXSTATE
+## SavedVariablesPerCharacter: SELLCRAPVARS
 
 options.lua
 main.lua
