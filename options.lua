@@ -6,7 +6,7 @@ if (SELLCRAP == nil) then
     frame:SetScript("OnEvent", 
         function(self, event, addonName)
             if (event == "ADDON_LOADED" and addonName == "SellCrap") then
-                handleSavedVars(SELLCRAPVARS);
+                handleSavedVars();
             end
         end
     )
@@ -25,7 +25,6 @@ optionspanel.headline:SetPoint("TOPLEFT", 20, -20);
 -- Auto Sell
 optionspanel.autoSellCheckbox = CreateFrame("CheckButton", "SellCrapOptionsPanelCheckBox1", optionspanel, "ChatConfigCheckButtonTemplate");
 optionspanel.autoSellCheckbox:SetPoint("TOPLEFT", 20, -44);
-optionspanel.autoSellCheckbox:SetText("Auto-sell on Merchant visit");
 optionspanel.autoSellCheckbox:SetScript("OnClick", function()
     SELLCRAPVARS.autoSellCheckboxState = optionspanel.autoSellCheckbox:GetChecked()
 end);
@@ -39,7 +38,6 @@ optionspanel.autoSellCheckbox.text:SetPoint("TOPLEFT", 50, -50);
 -- Auto Repair
 optionspanel.autoRepairCheckbox = CreateFrame("CheckButton", "SellCrapOptionsPanelCheckBox2", optionspanel, "ChatConfigCheckButtonTemplate");
 optionspanel.autoRepairCheckbox:SetPoint("TOPLEFT", 20, -70);
-optionspanel.autoRepairCheckbox:SetText("Auto-repair on Merchant visit");
 optionspanel.autoRepairCheckbox:SetScript("OnClick", function()
     SELLCRAPVARS.autoRepairCheckboxState = optionspanel.autoRepairCheckbox:GetChecked()
 end);
@@ -50,17 +48,43 @@ optionspanel.autoRepairCheckbox.text:SetSize(50, 50);
 optionspanel.autoRepairCheckbox.text:SetFont('Fonts\\FRIZQT__.TTF', 12);
 optionspanel.autoRepairCheckbox.text:SetPoint("TOPLEFT", 50, -75);
 
+-- Show Bag Crap Value
+optionspanel.showBagCrapValueCheckbox = CreateFrame("CheckButton", "SellCrapOptionsPanelCheckBox3", optionspanel, "ChatConfigCheckButtonTemplate");
+optionspanel.showBagCrapValueCheckbox:SetPoint("TOPLEFT", 20, -96);
+optionspanel.showBagCrapValueCheckbox:SetScript("OnClick", function()
+    SELLCRAPVARS.showBagCrapValueCheckboxState = optionspanel.showBagCrapValueCheckbox:GetChecked()
+    SELLCRAP:showBagCrapValue(SELLCRAPVARS.showBagCrapValueCheckboxState)
+end);
+
+optionspanel.showBagCrapValueCheckbox.text = CreateFrame("SimpleHTML", "SellCrapOptionsPanelCheckBox3Text", optionspanel);
+optionspanel.showBagCrapValueCheckbox.text:SetText("Show Crap value in Bagpack");
+optionspanel.showBagCrapValueCheckbox.text:SetSize(50, 50);
+optionspanel.showBagCrapValueCheckbox.text:SetFont('Fonts\\FRIZQT__.TTF', 12);
+optionspanel.showBagCrapValueCheckbox.text:SetPoint("TOPLEFT", 50, -100);
+
 InterfaceOptions_AddCategory(optionspanel);
 
-function handleSavedVars(savedVars)
-    if (savedVars == nil) then
+function handleSavedVars()
+    if (SELLCRAPVARS == nil) then
         SELLCRAPVARS = {};
         optionspanel.autoSellCheckbox:SetChecked(false);
         optionspanel.autoRepairCheckbox:SetChecked(false);
+        optionspanel.showBagCrapValueCheckbox:SetChecked(true);
         SELLCRAPVARS.autoSellCheckboxState = false;
         SELLCRAPVARS.autoRepairCheckboxState = false;
+        SELLCRAPVARS.showBagCrapValueCheckboxState = true;
     else
-        optionspanel.autoSellCheckbox:SetChecked(savedVars.autoSellCheckboxState);
-        optionspanel.autoRepairCheckbox:SetChecked(savedVars.autoRepairCheckboxState);
+        if (SELLCRAPVARS.autoSellCheckboxState == nil) then
+            optionspanel.autoSellCheckbox:SetChecked(false);
+        end
+        if (SELLCRAPVARS.autoRepairCheckboxState == nil) then
+            optionspanel.autoSellCheckbox:SetChecked(false);
+        end
+        if (SELLCRAPVARS.showBagCrapValueCheckboxState == nil) then
+            optionspanel.autoSellCheckbox:SetChecked(true);
+        end
+        optionspanel.autoSellCheckbox:SetChecked(SELLCRAPVARS.autoSellCheckboxState);
+        optionspanel.autoRepairCheckbox:SetChecked(SELLCRAPVARS.autoRepairCheckboxState);
+        optionspanel.showBagCrapValueCheckbox:SetChecked(SELLCRAPVARS.showBagCrapValueCheckboxState);
     end
 end

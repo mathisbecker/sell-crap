@@ -10,3 +10,4 @@
 
 options.lua
 main.lua
+bagCrapValue.lua

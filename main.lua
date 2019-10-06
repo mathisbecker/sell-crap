@@ -15,7 +15,7 @@ function SELLCRAP:printSellValue(rawMoneyValue)
         local copperString = "" 
         if (copperValue > 0) then copperString = copperValue..copperCoinIcon end
 
-        print("Selling crap for a total of "..goldString..silverString..copperString)
+        return "Selling crap for a total of "..goldString..silverString..copperString
     end
 end
 
@@ -35,7 +35,7 @@ function SELLCRAP:sellCrap()
             end
         end
     end
-    SELLCRAP:printSellValue(totalGreysValue)
+    print(SELLCRAP:printSellValue(totalGreysValue));
 end
 
 function SELLCRAP:repair()
