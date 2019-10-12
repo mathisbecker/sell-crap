@@ -1,8 +1,8 @@
 if (SELLCRAP == nil) then 
-    SELLCRAP = {}
+    SELLCRAP = {};
 
     local frame = CreateFrame("Frame");
-    frame:RegisterEvent("ADDON_LOADED")
+    frame:RegisterEvent("ADDON_LOADED");
     frame:SetScript("OnEvent", 
         function(self, event, addonName)
             if (event == "ADDON_LOADED" and addonName == "SellCrap") then
@@ -26,7 +26,7 @@ optionspanel.headline:SetPoint("TOPLEFT", 20, -20);
 optionspanel.autoSellCheckbox = CreateFrame("CheckButton", "SellCrapOptionsPanelCheckBox1", optionspanel, "ChatConfigCheckButtonTemplate");
 optionspanel.autoSellCheckbox:SetPoint("TOPLEFT", 20, -44);
 optionspanel.autoSellCheckbox:SetScript("OnClick", function()
-    SELLCRAPVARS.autoSellCheckboxState = optionspanel.autoSellCheckbox:GetChecked()
+    SELLCRAPVARS.autoSellCheckboxState = optionspanel.autoSellCheckbox:GetChecked();
 end);
 
 optionspanel.autoSellCheckbox.text = CreateFrame("SimpleHTML", "SellCrapOptionsPanelCheckBox1Text", optionspanel);
@@ -39,7 +39,7 @@ optionspanel.autoSellCheckbox.text:SetPoint("TOPLEFT", 50, -50);
 optionspanel.autoRepairCheckbox = CreateFrame("CheckButton", "SellCrapOptionsPanelCheckBox2", optionspanel, "ChatConfigCheckButtonTemplate");
 optionspanel.autoRepairCheckbox:SetPoint("TOPLEFT", 20, -70);
 optionspanel.autoRepairCheckbox:SetScript("OnClick", function()
-    SELLCRAPVARS.autoRepairCheckboxState = optionspanel.autoRepairCheckbox:GetChecked()
+    SELLCRAPVARS.autoRepairCheckboxState = optionspanel.autoRepairCheckbox:GetChecked();
 end);
 
 optionspanel.autoRepairCheckbox.text = CreateFrame("SimpleHTML", "SellCrapOptionsPanelCheckBox2Text", optionspanel);
@@ -52,8 +52,8 @@ optionspanel.autoRepairCheckbox.text:SetPoint("TOPLEFT", 50, -75);
 optionspanel.showBagCrapValueCheckbox = CreateFrame("CheckButton", "SellCrapOptionsPanelCheckBox3", optionspanel, "ChatConfigCheckButtonTemplate");
 optionspanel.showBagCrapValueCheckbox:SetPoint("TOPLEFT", 20, -96);
 optionspanel.showBagCrapValueCheckbox:SetScript("OnClick", function()
-    SELLCRAPVARS.showBagCrapValueCheckboxState = optionspanel.showBagCrapValueCheckbox:GetChecked()
-    SELLCRAP:showBagCrapValue(SELLCRAPVARS.showBagCrapValueCheckboxState)
+    SELLCRAPVARS.showBagCrapValueCheckboxState = optionspanel.showBagCrapValueCheckbox:GetChecked();
+    SELLCRAP:showBagCrapValue(SELLCRAPVARS.showBagCrapValueCheckboxState);
 end);
 
 optionspanel.showBagCrapValueCheckbox.text = CreateFrame("SimpleHTML", "SellCrapOptionsPanelCheckBox3Text", optionspanel);

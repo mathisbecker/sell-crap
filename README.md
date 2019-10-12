@@ -9,5 +9,8 @@ You may optionally enable automatic selling/repairing upon opening the merchant 
 #### Chat Message
 ![Alt text](exampleImages/chat-message.png)
 
+### Bag Crap Value
+![Alt text](exampleImages/bag-crapValue.png)
+
 #### Interface Settings
 ![Alt text](exampleImages/interface-settings.png)
