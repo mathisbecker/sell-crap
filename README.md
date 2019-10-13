@@ -1,4 +1,4 @@
-# sell-crap
+# SellCrap
 A World of Warcraft Addon to sell your greys.
 It Adds a button to every merchant window which will automatically find and sell all the grey items you are carrying in your bags!
 You may optionally enable automatic selling/repairing upon opening the merchant window.
