@@ -35,7 +35,7 @@ local function calculateCrapValue()
     return "Crap: 0"..copperCoinIcon;
 end
 
-local bagCrapValueBackground = CreateFrame("Frame", "SellCrap_BagCrapValueBackground", ContainerFrame1);
+local bagCrapValueBackground = CreateFrame("Frame", "SellCrap_BagCrapValueBackground", ContainerFrame1, BackdropTemplateMixin and "BackdropTemplate");
 bagCrapValueBackground:SetSize(135, 32);
 bagCrapValueBackground:SetPoint("TOP", 18, -29);
 bagCrapValueBackground:SetFrameStrata("HIGH");
