@@ -3,7 +3,7 @@
 ## Title: SellCrap
 ## Notes: Sell your greys with a single click!
 ## Author: Fitzsimmons6
-## Version: 1.4
+## Version: 1.4.6
 
 ## SavedVariablesPerCharacter: SELLCRAPVARS
 
