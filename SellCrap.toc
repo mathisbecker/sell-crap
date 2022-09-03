@@ -1,4 +1,4 @@
-## Interface: 20504
+## Interface: 30400
 
 ## Title: SellCrap
 ## Notes: Sell your greys with a single click!
